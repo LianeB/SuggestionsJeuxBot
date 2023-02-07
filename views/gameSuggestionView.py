@@ -25,12 +25,12 @@ class gameSuggestionView(discord.ui.View):
 class gameButton(discord.ui.Button['gameButton']):
     def __init__(self, label):
         super().__init__(label=label, style=discord.ButtonStyle.blurple, custom_id=label)
+        self.label = label
 
     # This function is called whenever the button is clicked
     async def callback(self, interaction: discord.Interaction):
         try:
-            #await interaction.response.defer()
-            #await interaction.response.send_message("Allo :D")
+            print(f'{str(interaction.user)} a cliqué sur le bouton {self.label}')
 
             label = ''
             for actionRow in interaction.message.components:

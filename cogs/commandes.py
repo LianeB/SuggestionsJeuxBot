@@ -33,8 +33,8 @@ class Commandes(commands.Cog, name='Commandes'):
         """Ajoute un jeu dans la liste de suggestions"""
         print(f'{str(interaction.user)} a utilisé /Jeu et a ajouté le jeu {game_name}')
         self.client.jeux_coll.update_one({"Nom": "jeux"},
-                                         {"$set": {game_name.title(): {} }})
-        await interaction.response.send_message(f'**{game_name.title()}** a été ajouté', ephemeral=True)
+                                         {"$set": {game_name: {} }})
+        await interaction.response.send_message(f'**{game_name}** a été ajouté', ephemeral=True)
 
         await refresh_embeds(self.client)
 
